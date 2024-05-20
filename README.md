@@ -14,6 +14,10 @@ Queries are written into SSIS variables, you could exec SqlCommands inside the s
 
 **Date synchronization**: Once the structures are matched, a configurable period is deleted (or the table is truncated, depending on the data volume of the table) and the new data block is bulk inserted. If a new column arrives with all its data set to null, it would not be necessary to have the reload new columns bit active, that is why the functionality is allowed.
 
+_Note: The real scenario had tables names dbo.Server$Datamart$TableVersion. I won't change this part of the code since I find it interesting._
+
+_Note2: Timestamp columns must be implemented as varbinary(8) since they are auto-generated in row creation event._
+
 ## Requirements
 
 - Microsoft SQL Server
